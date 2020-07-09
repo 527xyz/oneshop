@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/* header */
+html,body{
+    background: #fcfcfc;
+    font:12px Arial,Helvetica,sans-serif;
+}
+#header{
+    /* min-width: 1468px; */
+    min-width: 1200px;
+    border: 1px solid #e1e1e1;
+    
+    padding:16px;
+    background:#fff
+}
+#header .header-con{
+    width: 1197px;
+    height: 48px;
+    margin:0 auto;
+    padding-right:3px;
+}
+.header-r span{
+    font:12px Arial,Helvetica,sans-serif;
+    color:#999;
+    line-height: 18px;
+}
+.header-r .help{
+    margin-left:30px;
+    padding-right: 92px;
+    background:#fff;
+    position: relative;
+    margin-top: 2px;
+}
+.header-r .wec a{
+    color:#06c;
+}
+.header-r .wec a:hover{
+    color:red
+}
+
+.header-r .help:hover .bor{
+    display:block;
+}
+.help .help_list{
+    height: 18px;
+    width: 92px;
+    font-size: 12px;
+    color:#333;
+    position: absolute;
+    z-index: 3;
+}
+.help i{
+    margin-left: 5px;
+}
+.help a span{
+    line-height: 10px;
+    color:black;
+    padding:3px 2px 0 5px;
+}
+.help a span:hover{
+    color: red;
+}
+.help a em{
+    color:#ccc
+}
+.help .bor{
+    height:122px;
+    border: 1px solid #ccc;
+    /* padding-top: 25px; */
+    position: absolute;
+    /* top:-5px; */
+    z-index: 0;
+    top:-3px;
+    display:none;
+    background: #fff;
+}
+.help ul{
+    padding-top: 22px;
+}
+.help ul a:hover{
+    color:red;
+}
+.help ul li{
+    padding:4px 0 4px 20px;
+    border-top: 1px dashed #e2e2e2;
+    font-size: 12px;
+    width:75px;
+}
+.help ul li a{
+    padding-left: 4px;
+    color:black
+}
