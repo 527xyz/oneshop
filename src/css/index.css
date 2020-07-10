@@ -15,29 +15,61 @@ body{
 
 
 /* banner */
-#banner{
+.big_box{
     position: relative;
+}
+#banner{
     height: 400px;
     overflow: hidden;
+    position: relative;
 }
-.banner_con{
-    min-width: 1070px;
+
+
+#banner a{
+    display: block;
     height: 400px;
-    margin: 0 auto;
-    /* position: absolute; */
-    /* position: relative; */
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    /* cursor: pointer; */
+    /* float: left; */
 }
-/* .banner_bg */
-.banner_con a{
+#banner a img{
     position: absolute;
     left: 50%;
     margin-left: -960px;
-    /* cursor: pointer; */
-    float: left;
 }
-.banner_con a:nth-child(1){
+.bn3{
+    left: 200%;
+}
+#banner .bn2{
+    /* display: none; */
+}
+.banner_btn{
+    height: 36px;
+    width: 207px;
+    position: absolute;
+    bottom: -9px;
+    left:650px;
+    z-index: 1500;
+}
+.banner_btn span{
+    width: 99px;
+    height: 36px;
+    font-size: 12px;
+    line-height: 36px;
+    text-align: center;
+    color:#333;
+    background: #fff;
+    cursor: pointer;
+}
+#banner .auto{
+    height: 400px;
+    position: relative;
+}
+/* .banner_con a:nth-child(1){
     left: 112%;
-}
+} */
 
 
 /* time_limit */
@@ -698,10 +730,11 @@ body{
     position: absolute;
     outline: 1px solid transparent;
     transition: outline-color .5s;
-    z-index: 800;
+    z-index: 2000;
     top: 0px;
     left: 0px;
     display: inline-block;
+    
 }
 .like_list .loading{
     display:none;

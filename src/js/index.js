@@ -11,26 +11,10 @@ class Index_wrap{
         this.know_list()
         this.top_back()
         this.login()
-        this.banner()
+        // this.banner()
     }
     
-    banner(){
-
-
-        var mySwiper = new Swiper('.swiper-container', {
-            autoplay: true,
-        speed:1000,
-        loop:true,
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        })
-
-
-
-
-
-    }
+    
     count_time(){
         var time=5400
         var h,m,s;
@@ -289,14 +273,133 @@ class Index_wrap{
         })
     }
     login(){
-        if(location.search=="?"||location.search==""){
+        if(this.getCookie('active')!="true"){
             alert('请先登录')
             location.href="../pages/login.html"
         }
-        var username=location.search.slice(1)
-        $('.top_vip .login_btn').text(username).prev().text('晚上好,亲爱的').nextAll('.register_btn').css('display','none')
+        // var username=location.search.slice(1)
+        $('.top_vip .login_btn').text(this.getCookie('user')).prev().text('晚上好,亲爱的').nextAll('.register_btn').css('display','none')
+    }
+    getCookie(key){
+        var str=document.cookie;
+        var arr=str.split("; ");
+        var newArr;
+        for(var i=0;i<arr.length;i++){
+            newArr=arr[i].split("=");
+            if(newArr[0]==key){
+                return newArr[1];
+            }
+        }
     }
 }
 new Index_wrap
 
 
+class Banner{
+    constructor(){
+        this.w=document.querySelector('.bn1').offsetWidth
+        // console.log(this.w)
+        this.init()
+        this.click()
+        this.auto()
+        this.t
+        this.mouse()
+    }
+    init(){
+        $('.bn2').css('left',this.w)
+        $('.btn_l').css({
+            background:'#333',
+            color:"#fff"
+        })
+    }
+    click(){
+        var that=this
+        $('.btn_l').on('click',function(){
+            if($('.auto').css('left')==-that.w+'px'){
+                $('.auto').animate({
+                    left:0
+                },800)
+            }
+            $(this).css({
+                background:'#333',
+                color:"#fff"
+            }).next().css({
+                color:'#333',
+                background: '#fff'
+            })
+
+        })
+        
+        $('.btn_r').on("click",function(){
+            console.log($('.auto').css('left'))
+            if($('.auto').css('left')=='0px'){
+                $('.auto').animate({
+                    left:-that.w
+                },800)
+            }
+            if($('.auto').css('left')==-that.w*2+'px'){
+                $('.auto').animate({
+                    left:-that.w
+                },800)
+            }
+            $(this).css({
+                background:'#333',
+                color:"#fff"
+            }).prev().css({
+                color:'#333',
+                background: '#fff'
+            })
+        })
+    }
+    auto(){
+        var that=this
+        var l=that.w
+        var index=1
+        this.t=setInterval(() => {
+            $('.auto').animate({
+                left:-l
+            },800,function(){
+                l=l+l
+                index++
+                if(l>=3*that.w){
+                    $('.auto').css('left','0')
+                    l=that.w
+                }
+            })
+            if(index%2!=0){
+                $('.btn_r').css({
+                    background:'#333',
+                    color:"#fff"
+                })
+                $('.btn_l').css({
+                    color:'#333',
+                    background: '#fff'
+                })
+            }else{
+                $('.btn_l').css({
+                    background:'#333',
+                    color:"#fff"
+                })
+                $('.btn_r').css({
+                    color:'#333',
+                    background: '#fff'
+                })
+            }
+        }, 2000);
+        
+    }
+    mouse(){
+        var that=this
+        $('.banner_btn span').on('mouseenter',function(){
+            clearInterval(that.t)
+        }).on('mouseleave',function(){
+            that.auto()
+        })
+        // $('.auto').on('mouseenter',function(){
+        //     clearInterval(that.t)
+        // }).on('mouseleave',function(){
+        //     that.auto()
+        // })
+    }
+}
+new Banner

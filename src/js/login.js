@@ -127,7 +127,9 @@ class Login_wrap{
                         if($('.auto_login>em').css('display')=='inline-block'){
                             that.setCookie($('.login_name>.login_id').val(),$('.login_pass>input').val(),7)
                         }
-                        location.href='../pages/index.html?'+$('.login_name>.login_id').val()
+                        document.cookie="active=true"
+                        document.cookie=`user=${$('.login_name>.login_id').val()}`
+                        location.href='../pages/index.html'
                     }
                 }
             })

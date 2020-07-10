@@ -2,6 +2,8 @@ class Details{
     constructor(){
         this.init()
         this.location_url()
+        this.hello()
+        this.num()
     }
     init(){
         var that=this
@@ -68,7 +70,6 @@ class Details{
                         </div>
                     </div>
                         `)
-                        
                         var dat=data[i]
                         $('.pro_car_btn').on('click',function(){
                             $.get('../php/addwq.php',{
@@ -79,10 +80,23 @@ class Details{
                             },function(data){
                                 console.log(JSON.parse(data))
                                 $('#car_suc').css('display',"block")
+
+
+                                $.ajax({
+                                    url:"http://localhost/ws203/oneShop/src/php/showlist.php",
+                                    success:function(data){
+                                        var db=JSON.parse(data).data
+                                        var number=parseInt(db.length)
+                                        $('.hd_c_num').css('display','block').text(number)
+                                    },
+                                })
+
+
                                 timer=setTimeout(function(){
                                     $('#car_suc').css('display',"none")
                                 },1500)
                             })
+
                         })
                         new Fdj
                     }
@@ -95,6 +109,44 @@ class Details{
         $('.top_site span').on('click',function(){
             location.href="../pages/index.html"
         })
+    }
+    hello(){
+        if(this.getCookie('active')!="true"){
+            alert('请先登录')
+            location.href="../pages/login.html"
+        }
+        $('.top_vip .login_btn').text(this.getCookie('user')).prev().text('晚上好,亲爱的').nextAll('.register_btn').css('display','none')
+    }
+    getCookie(key){
+        var str=document.cookie;
+        var arr=str.split("; ");
+        var newArr;
+        for(var i=0;i<arr.length;i++){
+            newArr=arr[i].split("=");
+            if(newArr[0]==key){
+                return newArr[1];
+            }
+        }
+    }
+    num(){
+        window.onload=function(){
+            
+            $.ajax({
+                url:"http://localhost/ws203/oneShop/src/php/showlist.php",
+                success:function(data){
+                    console.log(1)
+                    var db=JSON.parse(data).data
+                    console.log(db)
+                    var number=parseInt(db.length)
+                    if(db){
+                        $('.hd_c_num').css('display','block').text(number)
+                    }else{
+                        $('.hd_c_num').css('display','none').text('')
+                        
+                    }
+                }
+            })
+        }
         
     }
 }

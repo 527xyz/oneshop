@@ -22,6 +22,12 @@ const phpHandler=()=>{
 }
 module.exports.php=phpHandler;
 
+const iconHandler=()=>{
+    return gulp.src("./src/icon/**")
+    .pipe(gulp.dest("./dist/icon"))
+}
+module.exports.php=iconHandler;
+
 const imagesHandler=()=>{
     return gulp.src("./src/images/**")
     .pipe(gulp.dest("./dist/images"))
@@ -80,11 +86,12 @@ const watchHandler=()=>{
     gulp.watch("./src/images/**",imagesHandler)
     gulp.watch("./src/lib/**",libHandler)
     gulp.watch("./src/php/**",phpHandler)
+    gulp.watch("./src/icon/**",iconHandler)
 
 }
 module.exports.default=gulp.series(
     delHandler,
-    gulp.parallel(libHandler,imagesHandler,cssHandler,htmlHandler,jsHandler,phpHandler),
+    gulp.parallel(libHandler,imagesHandler,cssHandler,htmlHandler,jsHandler,phpHandler,iconHandler),
     webserverHandler,
     watchHandler
 )

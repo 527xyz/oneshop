@@ -47,6 +47,38 @@ body,html{
     color:#fff
 }
 
+
+.shop_car{
+    position: relative;
+    
+}
+.shop_car .hd_c_num{
+    position: absolute;
+    z-index: 601;
+    top: -5px;
+    right: 0;
+    min-width: 12px;
+    height: 18px;
+    padding: 0 3px;
+    border-radius: 10px;
+    background: #ff4040;
+    color: #fff;
+    font-family: Tahoma;
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 17px;
+    text-align: center;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
 /* product */
 #prodet_wrap{
     width: 1200px;

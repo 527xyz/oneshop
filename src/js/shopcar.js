@@ -2,6 +2,8 @@ class Car{
     constructor(){
         this.show()
         this.location_url()
+        this.hello()
+        this.aaa()
     }
     show(){
         var that=this
@@ -74,6 +76,7 @@ class Car{
                 that.money()
                 that.del(db)
                 that.sum(db)
+                that.car_null()
                 new Goux
             }
         })
@@ -134,6 +137,8 @@ class Car{
                     $('.rpv_count b').text($('.car_list').length)
                     new Goux
                 }
+                that.car_null()
+
             }
         }
     }
@@ -150,6 +155,40 @@ class Car{
     }
     sum(db){
         $('.rpv_count b').text(db.length)
+    }
+    hello(){
+        if(this.getCookie('active')!="true"){
+            alert('请先登录')
+            location.href="../pages/login.html"
+        }
+        $('.top_vip .login_btn').text(this.getCookie('user')).prev().text('晚上好,亲爱的').css('color',"#666").nextAll('.register_btn').css('display','none')
+    }
+    getCookie(key){
+        var str=document.cookie;
+        var arr=str.split("; ");
+        var newArr;
+        for(var i=0;i<arr.length;i++){
+            newArr=arr[i].split("=");
+            if(newArr[0]==key){
+                return newArr[1];
+            }
+        }
+    }
+    car_null(){
+        if($('.car_list').length!=0){
+            $('#car_null').css('display','none')
+        }else{
+            $('#car_null').css('display','block')
+            $('.product_data').css('display','none')
+            $('.settle').css('display','none')
+        }
+               
+    }
+    aaa(){
+        var that=this
+        window.onload=function(){
+            that.car_null()
+        }
     }
 }
 new Car
@@ -182,9 +221,3 @@ class Goux{
     }
 }
 
-class Fixed{
-    constructor(){
-
-    }
-    
-}
