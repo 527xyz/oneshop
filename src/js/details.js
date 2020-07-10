@@ -9,7 +9,7 @@ class Details{
         var that=this
         var timer;
         $.ajax({
-            url:"http://localhost/ws203/oneShop/src/lib/shop_list.json",
+            url:"../lib/shop_list.json",
             success:function(data){
                 clearTimeout(timer)
                 for(var i=0;i<data.length;i++){
@@ -83,7 +83,7 @@ class Details{
 
 
                                 $.ajax({
-                                    url:"http://localhost/ws203/oneShop/src/php/showlist.php",
+                                    url:"../php/showlist.php",
                                     success:function(data){
                                         var db=JSON.parse(data).data
                                         var number=parseInt(db.length)
@@ -132,7 +132,7 @@ class Details{
         window.onload=function(){
             
             $.ajax({
-                url:"http://localhost/ws203/oneShop/src/php/showlist.php",
+                url:"../php/showlist.php",
                 success:function(data){
                     console.log(1)
                     var db=JSON.parse(data).data

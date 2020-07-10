@@ -107,7 +107,7 @@ class Login_wrap{
             }
 
             $.ajax({
-                url:'http://localhost/ws203/oneShop/src/php/login.php',
+                url:'../php/login.php',
                 data:`username=${$('.login_name>.login_id').val()}&password=${$('.login_pass>input').val()}`,
                 success:function(data){
                     // console.log(data)

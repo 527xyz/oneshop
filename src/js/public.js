@@ -51,7 +51,7 @@ class Publicjs{
         $('.splb_title').on('mouseenter',function(){
             $(this).find('.splb_title_list').css('display','block')
             $.ajax({
-                url:'http://localhost/ws203/oneShop/src/lib/data.json',
+                url:'../lib/data.json',
                 success:function(data){
                     for(var i=0;i<data.length;i++){
                         $('.category-item').eq(i).empty()

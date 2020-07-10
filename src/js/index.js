@@ -41,7 +41,7 @@ class Index_wrap{
     }
     count_time_data(){
         $.ajax({
-            url:"http://localhost/ws203/oneShop/src/lib/sup_time.json",
+            url:"../lib/sup_time.json",
             success:function(data){
                 // console.log(data[0])
                 for(var i=0;i<data.length;i++){
@@ -94,7 +94,7 @@ class Index_wrap{
     scene_data(){
         var that=this
         $.ajax({
-            url:"http://localhost/ws203/oneShop/src/lib/scene.json",
+            url:"../lib/scene.json",
             success:function(data){
                 for(var i=0;i<data.length;i++){
                     $('.scene_floor_con').append(
@@ -177,7 +177,7 @@ class Index_wrap{
     }
     know_list(){
         $.ajax({
-            url:"http://localhost/ws203/oneShop/src/lib/shop_list.json",
+            url:"../lib/shop_list.json",
             success:function(data){
                 for(var i=0;i<data.length;i++){
                     $('.under_list').append(`
@@ -200,7 +200,7 @@ class Index_wrap{
                                 <a href="">找相似</a>
                             </div>
                         </div>
-                        <a href="http://localhost/ws203/oneShop/src/pages/commodity-details.html?goodsId=${data[i].goodsId}" class="border_line"></a>
+                        <a href="../pages/commodity-details.html?goodsId=${data[i].goodsId}" class="border_line"></a>
                     </li>`)
                 }
                 var oli=document.getElementsByClassName("under_list_single")

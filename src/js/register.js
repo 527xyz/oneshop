@@ -194,7 +194,7 @@ class Register_wrap{
             }
             if(m==0){
                 $.ajax({
-                    url:'http://localhost/ws203/oneShop/src/php/register.php',
+                    url:'../php/register.php',
                     data:`username=${name.value}&password=${password.value}&phonenumber=${phonenumber.value}`,
                     success:function(data){
                         // console.log(data)

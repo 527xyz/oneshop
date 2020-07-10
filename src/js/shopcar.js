@@ -8,7 +8,7 @@ class Car{
     show(){
         var that=this
         $.ajax({
-            url:"http://localhost/ws203/oneShop/src/php/showlist.php",
+            url:"../php/showlist.php",
             success:function(data){
                 var db=JSON.parse(data).data
                 $('.product_data').empty()
@@ -187,11 +187,12 @@ class Car{
     aaa(){
         var that=this
         window.onload=function(){
-            that.car_null()
+            that.show()
+            // that.car_null()
         }
     }
 }
-new Car
+// new Car
 
 class Goux{
     constructor(){
@@ -219,5 +220,11 @@ class Goux{
             }
         })
     }
+}
+
+window.onload=function(){
+    console.log(1)
+    new Car
+    new Goux
 }
 
