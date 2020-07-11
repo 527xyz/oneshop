@@ -111,6 +111,7 @@ class Details{
         })
     }
     hello(){
+        //登录拦截开关
         if(this.getCookie('active')!="true"){
             alert('请先登录')
             location.href="../pages/login.html"

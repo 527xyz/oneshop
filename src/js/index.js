@@ -273,10 +273,11 @@ class Index_wrap{
         })
     }
     login(){
-        if(this.getCookie('active')!="true"){
-            alert('请先登录')
-            location.href="../pages/login.html"
-        }
+        //路由防御开关
+        // if(this.getCookie('active')!="true"){
+        //     alert('请先登录')
+        //     location.href="../pages/login.html"
+        // }
         // var username=location.search.slice(1)
         $('.top_vip .login_btn').text(this.getCookie('user')).prev().text('晚上好,亲爱的').nextAll('.register_btn').css('display','none')
     }

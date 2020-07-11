@@ -70,7 +70,7 @@ const cssHandler=()=>{
 module.exports.css=cssHandler;
 
 const jsHandler=()=>{
-    return gulp.src("./src/js/index.js")
+    return gulp.src("./src/js/**")
     .pipe(babel({
         presets:["@babel/env"]
     }))

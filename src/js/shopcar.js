@@ -78,6 +78,8 @@ class Car{
                 that.sum(db)
                 that.car_null()
                 new Goux
+
+                // this.aaa(db)
             }
         })
     }
@@ -157,10 +159,11 @@ class Car{
         $('.rpv_count b').text(db.length)
     }
     hello(){
-        if(this.getCookie('active')!="true"){
-            alert('请先登录')
-            location.href="../pages/login.html"
-        }
+        //路由防御开关
+        // if(this.getCookie('active')!="true"){
+        //     alert('请先登录')
+        //     location.href="../pages/login.html"
+        // }
         $('.top_vip .login_btn').text(this.getCookie('user')).prev().text('晚上好,亲爱的').css('color',"#666").nextAll('.register_btn').css('display','none')
     }
     getCookie(key){
@@ -189,6 +192,13 @@ class Car{
         window.onload=function(){
             that.show()
             // that.car_null()
+
+            
+        // if(!db.length){
+        //     console.log(1)
+        //     $('.settle').css('display','none')
+        // }
+
         }
     }
 }
@@ -226,5 +236,7 @@ window.onload=function(){
     console.log(1)
     new Car
     new Goux
+    // $('.settle').css('display','none')
+    $('.product_list_head').css('display','none')
 }
 
